@@ -39,3 +39,17 @@ export function normalizeError (e) {
 
   return result;
 }
+
+export function normalizeArgs (args) {
+  let ret = {};
+  if (Array.isArray(args['0'])) {
+    let crt = 0;
+    args['0'].forEach(function (val, i) {
+      ret[i.toString()] = val;
+      crt++;
+    });
+    ret[crt.toString()] = args[1];
+    return ret;
+  }
+  return args;
+}
