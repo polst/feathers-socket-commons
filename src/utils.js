@@ -42,7 +42,7 @@ export function normalizeError (e) {
 
 export function normalizeArgs (args) {
   let ret = [];
-  if (Array.isArray(args['0'])) {
+  if (args.length === 2 && Array.isArray(args['0'])) {
     ret = args[0];
     ret.push(args[1]);
     return ret;
